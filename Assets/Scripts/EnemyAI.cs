@@ -9,6 +9,8 @@ public class EnemyAI : MonoBehaviour
 
     public GameObject player;
     public GameObject Enemy;
+    private GameManager manager;
+    private int time;
 
     private Rigidbody2D Rb;
     private bool FaceRight = true;
@@ -26,6 +28,8 @@ public class EnemyAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        time = 5;
+        manager = GameObject.Find("GameManager").GetComponent<GameManager>();
         Rb = GetComponent<Rigidbody2D>();
     }
 
@@ -70,7 +74,10 @@ public class EnemyAI : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.attachedRigidbody == player.GetComponent<Rigidbody2D>())
-        {
+        {   
+            //if player hit enemy update the timer time
+            manager.AddToTimer(time);
+
             //Delete this Enemy
             Destroy(this.gameObject);
         }
