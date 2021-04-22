@@ -2488,6 +2488,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerText: {fileID: 517714162}
   player: {fileID: 667557220}
+  currentLevel: 2
 --- !u!4 &1856216677
 Transform:
   m_ObjectHideFlags: 0
