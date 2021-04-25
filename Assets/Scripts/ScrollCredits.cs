@@ -1,16 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScrollCredits : MonoBehaviour
 {
-    public int restartPoint;
+    public float restartPoint;
     public Vector2 startPoint;
+    private RectTransform rect;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        rect = this.GetComponent<RectTransform>();
     }
 
     /// <summary>
@@ -19,13 +21,14 @@ public class ScrollCredits : MonoBehaviour
     /// </summary>
     void Update()
     {
-        Vector2 pos = this.transform.position;
+        Vector2 pos = rect.transform.position;
         pos.y += .25f;
-        this.transform.position = pos;
+        rect.transform.position = pos;
 
-        if (this.transform.position.y >= restartPoint)
+
+        if (rect.transform.position.y >= restartPoint)
         {
-            this.transform.position = startPoint;
+            rect.transform.position = startPoint;
         }
     }
 }
