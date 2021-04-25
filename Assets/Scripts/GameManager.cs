@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
         platforms = GameObject.FindGameObjectsWithTag("Platform");
         updateTimer = true;
         endGameScene = 5;
+        File.WriteAllText(previousLevelText, currentLevel.ToString());
     }
 
     /// <summary>
@@ -64,10 +65,9 @@ public class GameManager : MonoBehaviour
         if(timer <= 0)
         {
             SceneManager.LoadScene(endGameScene);
-            File.WriteAllText(previousLevelText, currentLevel.ToString());
         }
 
-        timerText.text = "Time Remaining: " + Math.Round(timer, 2);
+        timerText.text = "Health Remaining: " + Math.Round(timer, 2);
     }
 
     public void AddToTimer(int vTimer)
