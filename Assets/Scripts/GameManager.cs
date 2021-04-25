@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.IO;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class GameManager : MonoBehaviour
     private bool updateTimer;
     public GameObject player;
     private GameObject[] platforms;
+    public int currentLevel;
+    private const string previousLevelText = "Assets/Text Files/PreviousLevel.txt";
+    private int endGameScene;
 
     float timer = 30;
 
@@ -19,6 +23,7 @@ public class GameManager : MonoBehaviour
         //grabs all the platforms in the game with the tag platform
         platforms = GameObject.FindGameObjectsWithTag("Platform");
         updateTimer = true;
+        endGameScene = 5;
     }
 
     /// <summary>
@@ -58,7 +63,8 @@ public class GameManager : MonoBehaviour
 
         if(timer <= 0)
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(endGameScene);
+            File.WriteAllText(previousLevelText, currentLevel.ToString());
         }
 
         timerText.text = "Time Remaining: " + Math.Round(timer, 2);
