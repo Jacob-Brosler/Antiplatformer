@@ -22,7 +22,7 @@ public class ScrollCredits : MonoBehaviour
     void Update()
     {
         Vector2 pos = rect.transform.position;
-        pos.y += .25f;
+        pos.y += .5f;
         rect.transform.position = pos;
 
 
