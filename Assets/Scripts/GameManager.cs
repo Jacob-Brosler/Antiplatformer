@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public int currentLevel;
     private const string previousLevelText = "Assets/Text Files/PreviousLevel.txt";
     private int endGameScene;
+    private int enemiesKilled;
 
     float timer = 30;
 
@@ -25,6 +26,7 @@ public class GameManager : MonoBehaviour
         updateTimer = true;
         endGameScene = 5;
         File.WriteAllText(previousLevelText, currentLevel.ToString());
+        enemiesKilled = 0;
     }
 
     /// <summary>
@@ -70,8 +72,34 @@ public class GameManager : MonoBehaviour
         timerText.text = "Health Remaining: " + Math.Round(timer, 2);
     }
 
+    /// <summary>
+    /// adds to the timer
+    /// </summary>
+    /// <param name="vTimer"></param>
     public void AddToTimer(int vTimer)
     {
         timer += vTimer;
+    }
+
+    public void IncreaseEnemiesKilled()
+    {
+        enemiesKilled++;
+    }
+
+    /// <summary>
+    /// returns the amount of enemies killed
+    /// </summary>
+    public int GetEnemiesKilled()
+    {
+        return enemiesKilled;
+    }
+
+    
+    /// <summary>
+    /// returns the timer that is left
+    /// </summary>
+    public float GetTimerRemaining()
+    {
+        return timer;
     }
 }

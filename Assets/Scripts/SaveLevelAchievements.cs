@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
-public class EndGame : MonoBehaviour
+public class SaveLevelAchievements : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -15,13 +15,5 @@ public class EndGame : MonoBehaviour
     void Update()
     {
         
-    }
-       
-    /// <summary>
-    /// Will end the game when the quit game button is clicked
-    /// </summary>
-    public void QuitGame()
-    {
-        Application.Quit();
     }
 }
