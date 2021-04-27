@@ -89,6 +89,7 @@ public class EnemyAIType3 : MonoBehaviour
         {
             //if player hit enemy update the timer time
             manager.AddToTimer(time);
+            manager.IncreaseEnemiesKilled();
 
             //Delete this Enemy
             Destroy(this.gameObject);
