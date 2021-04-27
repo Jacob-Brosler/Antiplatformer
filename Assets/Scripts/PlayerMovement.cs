@@ -20,12 +20,18 @@ public class PlayerMovement : MonoBehaviour
         {
             jump = true;
         }
-    }
 
+        if (controller.numberOfExtraJumps > 0 && Input.GetButtonDown("Jump"))
+        {
+            jump = true;
+        }
+    }
+    
     // Update is called once per frame
     void FixedUpdate()
     {
         controller.Move(horizontalMove * Time.fixedDeltaTime, false, jump);
         jump = false;
+    
     }
 }
