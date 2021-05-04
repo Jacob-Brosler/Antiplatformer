@@ -14,7 +14,7 @@ public class EnemyAIType3 : MonoBehaviour
 
     private Rigidbody2D Rb;
     private bool FaceRight = true;
-    private int goRight = 1;
+    private int goRight = -1;
     
 
     private bool OnGround;
